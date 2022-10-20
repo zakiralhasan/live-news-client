@@ -4,7 +4,7 @@ import NewsSummuryCard from "../../NewsSummuryCard/NewsSummuryCard";
 
 const Home = () => {
   const news = useLoaderData();
-  console.log(news);
+
   return (
     <div className=" mx-2 sm:mx-0">
       {news.map((singleNews) => (
