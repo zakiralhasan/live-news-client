@@ -11,9 +11,8 @@ const LeftSide = () => {
       .then((data) => setCategories(data));
   }, []);
 
-  console.log(categories);
   return (
-    <div className="px-2">
+    <div className="px-2 hidden sm:block">
       <h1 className="text-2xl font-semibold py-4">All categories</h1>
       <div className="underline text-blue-600">
         {categories.map((category) => (

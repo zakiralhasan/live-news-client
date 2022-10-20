@@ -7,16 +7,16 @@ import LeftSide from "../Components/Pages/Shared/LeftSide/LeftSide";
 
 const Main = () => {
   return (
-    <div>
+    <div className="bg-gray-200">
       <NaveBar></NaveBar>
-      <div className="grid grid-cols-12 ">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 sm:grid-cols-12 ">
+        <div className="col-span-2 hidden sm:block">
           <LeftSide></LeftSide>
         </div>
         <div className="col-span-7">
           <Outlet></Outlet>
         </div>
-        <div className="col-span-3">
+        <div className=" sm:col-span-3">
           <RightSide></RightSide>
         </div>
       </div>
