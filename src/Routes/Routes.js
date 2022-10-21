@@ -5,6 +5,7 @@ import News from "../Components/Pages/News/News";
 import Categories from "../Components/Pages/Categories/Categories";
 import LogIn from "../Components/Pages/LogIn/LogIn";
 import Register from "../Components/Pages/Register/Register";
+import ResetPassword from "../Components/Pages/ResetPassword/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LogIn></LogIn>,
+      },
+      {
+        path: "/reset",
+        element: <ResetPassword></ResetPassword>,
       },
     ],
   },

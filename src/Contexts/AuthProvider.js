@@ -2,9 +2,12 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendEmailVerification,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { useEffect } from "react";
 import { useState, createContext } from "react";
@@ -22,6 +25,11 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  //take user name and photo URL during registration
+  const updateUserProfile = (profile) => {
+    updateProfile(auth.currentUser, profile);
+  };
+
   //login user through email and password
   const loginUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
@@ -32,6 +40,7 @@ const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, provider);
   };
 
+  //monitoring login user
   useEffect(() => {
     const unsubscribeUser = () => {
       setLoading(false);
@@ -47,11 +56,25 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  //user email varify through valid mail
+  const userEmailVerification = (email) => {
+    return sendEmailVerification(auth.currentUser);
+  };
+
+  //reset user password through email
+  const resetUserPassword = (email) => {
+    return sendPasswordResetEmail(auth, email);
+  };
+
   const authInfo = {
     user,
+    loading,
     creatUser,
+    updateUserProfile,
     loginUser,
     logOutUser,
+    userEmailVerification,
+    resetUserPassword,
     loginUserWithGoogle,
   };
 
