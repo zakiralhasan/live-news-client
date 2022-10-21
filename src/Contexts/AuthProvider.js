@@ -45,7 +45,7 @@ const AuthProvider = ({ children }) => {
     const unsubscribeUser = () => {
       onAuthStateChanged(auth, (currentUser) => {
         //used for user email verification issue resolve
-        if(currentUser === null || currentUser.emailVerified){
+        if (currentUser === null || currentUser.emailVerified) {
           setUser(currentUser);
         }
         setLoading(false);

@@ -4,7 +4,7 @@ import swal from "sweetalert";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const LogIn = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, setLoading } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -29,7 +29,10 @@ const LogIn = () => {
           swal(" Your email is not verified yet! Please verify your email.");
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error))
+      .finally(() => {
+        setLoading(false);
+      });
 
     form.reset();
   };

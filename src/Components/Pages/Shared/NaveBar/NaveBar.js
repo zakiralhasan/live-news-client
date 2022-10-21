@@ -102,7 +102,7 @@ const NaveBar = () => {
               <li>
                 <Link>About</Link>
               </li>
-              <div class="divider"></div>
+              <div className="divider"></div>
               <LeftSide></LeftSide>
             </ul>
           </div>
