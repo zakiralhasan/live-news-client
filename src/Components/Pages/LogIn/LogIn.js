@@ -1,13 +1,14 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const LogIn = () => {
-  const {loginUser} = useContext(AuthContext);
+  const { loginUser } = useContext(AuthContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";  
+  const from = location.state?.from?.pathname || "/";
 
   const handleForm = (event) => {
     event.preventDefault();
@@ -16,12 +17,17 @@ const LogIn = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(password, email);
-    
+
     loginUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate(from, {replace: true})
+        //used for user email verification issue resolve
+        if (user.emailVerified) {
+          navigate(from, { replace: true });
+        } else {
+          swal(" Your email is not verified yet! Please verify your email.");
+        }
       })
       .catch((error) => console.error(error));
 
@@ -68,7 +74,7 @@ const LogIn = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn btn-primary">Login</button>
+                  <button className="btn bg-blue-400 border-none">Login</button>
                 </div>
               </div>
             </div>

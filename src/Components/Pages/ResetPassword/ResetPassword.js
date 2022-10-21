@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 
 const ResetPassword = () => {
@@ -15,6 +16,7 @@ const ResetPassword = () => {
       .catch((error) => console.error(error));
 
     event.target.reset();
+    swal("Please check your inbox or spam box!");
   };
   return (
     <div>
@@ -53,7 +55,9 @@ const ResetPassword = () => {
                   </label>
                 </div>
                 <div className="form-control mt-4">
-                  <button className="btn btn-primary">Reset</button>
+                  <button className="btn  bg-blue-400 border-none">
+                    Reset
+                  </button>
                 </div>
               </div>
             </div>

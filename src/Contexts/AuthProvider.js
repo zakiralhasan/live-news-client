@@ -17,8 +17,8 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [user, setUser] = useState(null); //for store user information
+  const [loading, setLoading] = useState(true); // for loading stage
 
   //creat new user through email and password
   const creatUser = (email, password) => {
@@ -44,7 +44,10 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribeUser = () => {
       onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
+        //used for user email verification issue resolve
+        if(currentUser === null || currentUser.emailVerified){
+          setUser(currentUser);
+        }
         setLoading(false);
       });
     };

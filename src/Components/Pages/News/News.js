@@ -5,14 +5,13 @@ import { BsBookmarkCheck, BsShareFill } from "react-icons/bs";
 
 const News = () => {
   const selectedNews = useLoaderData();
-  const { image_url, title, details, total_view, rating, author, _id } =
-    selectedNews;
+  const { image_url, title, details, total_view, rating, author } = selectedNews;
   console.log(selectedNews);
   return (
     <div className="bg-white my-4 rounded shadow-md">
       <div className="flex justify-between items-center p-2 border-b">
         <div className="flex">
-          <img className="w-10 rounded-full" src={author.img} alt="" />
+          <img className="w-12 rounded-full" src={author.img} alt="" />
           <div className="ml-2">
             <p className="">{author.name}</p>
             <small>{author.published_date}</small>

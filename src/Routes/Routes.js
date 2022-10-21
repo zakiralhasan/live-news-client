@@ -7,29 +7,37 @@ import LogIn from "../Components/Pages/LogIn/LogIn";
 import Register from "../Components/Pages/Register/Register";
 import ResetPassword from "../Components/Pages/ResetPassword/ResetPassword";
 import PrivetRute from "./PrivetRute";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/news"),
+        loader: () => fetch("https://live-news-server.vercel.app/news"),
       },
       {
         path: "/news/:newsID",
-        element: <PrivetRute><News></News></PrivetRute>,
+        element: (
+          <PrivetRute>
+            <News></News>
+          </PrivetRute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/news/${params.newsID}`),
+          fetch(`https://live-news-server.vercel.app/news/${params.newsID}`),
       },
 
       {
         path: "categories/:categoryID",
         element: <Categories></Categories>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.categoryID}`),
+          fetch(
+            `https://live-news-server.vercel.app/category/${params.categoryID}`
+          ),
       },
       {
         path: "/register",

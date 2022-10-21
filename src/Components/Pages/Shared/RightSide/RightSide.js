@@ -29,7 +29,7 @@ const RightSide = () => {
       <div className="flex flex-col gap-2 py-4">
         <button
           onClick={handleGoogleLogin}
-          className="btn btn-outline normal-case btn-info"
+          className="btn btn-outline normal-case hover:bg-blue-400 hover:border-none"
         >
           <FaGoogle className="mr-2 text-2xl" /> Login via Googgle
         </button>
@@ -37,22 +37,32 @@ const RightSide = () => {
           <FaGithub className="mr-2 text-2xl" /> Login via Github
         </button>
       </div>
-      <h1 className="py-2">Find Us On</h1>
+      <h1 className="mt-2 font-medium">Find Us On</h1>
       <div>
-        <button className="w-full px-2 py-2 my-2 rounded border border-black flex items-center">
-          <FaFacebook className="mr-2" /> Facebook
-        </button>
-        <button className="w-full px-2 py-2 my-2 rounded border border-black flex items-center">
-          <FaYoutube className="mr-2" /> Youtube
-        </button>
-        <button className="w-full px-2 py-2 my-2 rounded border border-black flex items-center">
-          <FaTwitter className="mr-2" /> Twitter
-        </button>
-        <button className="w-full px-2 py-2 my-2 rounded border border-black flex items-center">
-          <FaWhatsapp className="mr-2" /> Whatsapp
-        </button>
+        <a href="https://www.facebook.com/">
+          <button className="w-full px-2 py-2 my-2 rounded border border-black flex items-center">
+            <FaFacebook className="mr-2" /> Facebook
+          </button>
+        </a>
+        <a href="https://www.youtube.com/">
+          <button className="w-full px-2 py-2 my-2 rounded border border-black flex items-center">
+            <FaYoutube className="mr-2" /> Youtube
+          </button>
+        </a>
+        <a href="https://twitter.com/">
+          <button className="w-full px-2 py-2 my-2 rounded border border-black flex items-center">
+            <FaTwitter className="mr-2" /> Twitter
+          </button>
+        </a>
+        <a href="https://www.whatsapp.com/">
+          <button className="w-full px-2 py-2 my-2 rounded border border-black flex items-center">
+            <FaWhatsapp className="mr-2" /> Whatsapp
+          </button>
+        </a>
       </div>
-      <RightSideCarousel></RightSideCarousel>
+      <div className="mt-4">
+        <RightSideCarousel></RightSideCarousel>
+      </div>
     </div>
   );
 };

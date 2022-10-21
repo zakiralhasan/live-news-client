@@ -17,7 +17,7 @@ const NaveBar = () => {
   };
   return (
     <div>
-      <div className="navbar bg-blue-100">
+      <div className="navbar bg-blue-200">
         <div className="mr-6">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
             Live News
@@ -50,12 +50,18 @@ const NaveBar = () => {
             ) : (
               <div className="flex w-full items-center">
                 <Link to="/register">
-                  <button onClick={handleLogout} className="mx-2 btn btn-sm">
+                  <button
+                    onClick={handleLogout}
+                    className="mx-2 btn btn-ghost hover:text-white"
+                  >
                     Register
                   </button>
                 </Link>
                 <Link to="/login">
-                  <button onClick={handleLogout} className="mx-2 btn btn-sm">
+                  <button
+                    onClick={handleLogout}
+                    className="mx-2 btn btn-ghost hover:text-white"
+                  >
                     Login
                   </button>
                 </Link>
@@ -96,6 +102,7 @@ const NaveBar = () => {
               <li>
                 <Link>About</Link>
               </li>
+              <div class="divider"></div>
               <LeftSide></LeftSide>
             </ul>
           </div>
