@@ -43,9 +43,9 @@ const AuthProvider = ({ children }) => {
   //monitoring login user
   useEffect(() => {
     const unsubscribeUser = () => {
-      setLoading(false);
       onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
+        setLoading(false);
       });
     };
     return () => unsubscribeUser();
@@ -69,6 +69,7 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     loading,
+    setLoading,
     creatUser,
     updateUserProfile,
     loginUser,
