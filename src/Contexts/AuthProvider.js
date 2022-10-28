@@ -27,16 +27,19 @@ const AuthProvider = ({ children }) => {
 
   //take user name and photo URL during registration
   const updateUserProfile = (profile) => {
+    setLoading(true);
     updateProfile(auth.currentUser, profile);
   };
 
   //login user through email and password
   const loginUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //login user through google
   const loginUserWithGoogle = (provider) => {
+    setLoading(true);
     return signInWithPopup(auth, provider);
   };
 

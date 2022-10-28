@@ -1,34 +1,32 @@
 import React from "react";
 import BannerOne from "../../../Others/images/banner-pic-01.jpg";
 import BannerTwo from "../../../Others/images/nanner-pic-02.jpg";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Autoplay } from "swiper";
 
 const RightSideCarousel = () => {
   return (
-    <div>
-      <div className="carousel w-full">
-        <div id="slide1" className="carousel-item relative w-full">
-          <img src={BannerOne} className="" alt="" />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide2" className="text-white">
-              ❮
-            </a>
-            <a href="#slide2" className="text-white">
-              ❯
-            </a>
-          </div>
-        </div>
-        <div id="slide2" className="carousel-item relative w-full">
-          <img src={BannerTwo} className="w-full" alt="" />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide1" className="text-white">
-              ❮
-            </a>
-            <a href="#slide1" className="text-white">
-              ❯
-            </a>
-          </div>
-        </div>
-      </div>
+    <div className="">
+      <Swiper
+        spaceBetween={30}
+        loop={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        slidesPerView={1}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+      >
+        <SwiperSlide>
+          <img className="w-full" src={BannerOne} alt="" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img className="w-full" src={BannerTwo} alt="" />
+        </SwiperSlide>
+      </Swiper>
     </div>
   );
 };
