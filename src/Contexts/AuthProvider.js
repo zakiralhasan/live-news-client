@@ -45,15 +45,13 @@ const AuthProvider = ({ children }) => {
 
   //monitoring login user
   useEffect(() => {
-    const unsubscribeUser = () => {
-      onAuthStateChanged(auth, (currentUser) => {
-        //used for user email verification issue resolve
-        if (currentUser === null || currentUser.emailVerified) {
-          setUser(currentUser);
-        }
-        setLoading(false);
-      });
-    };
+    const unsubscribeUser = onAuthStateChanged(auth, (currentUser) => {
+      //used for user email verification issue resolve
+      if (currentUser === null || currentUser.emailVerified) {
+        setUser(currentUser);
+      }
+      setLoading(false);
+    });
     return () => unsubscribeUser();
   }, []);
 
