@@ -49,12 +49,12 @@ const Register = () => {
   return (
     <div>
       <form onSubmit={handleForm}>
-        <div className="hero min-h-screen bg-base-200">
-          <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className=" bg-base-200">
+          <div className="hero-content flex-col ">
             <div className="text-center lg:text-left">
               <h1 className="text-3xl font-semibold">Registration free!</h1>
             </div>
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+            <div className="card flex-shrink-0 w-full max-w-sm shadow-lg bg-base-100 rounded-md">
               <div className="card-body">
                 <div className="form-control">
                   <input
