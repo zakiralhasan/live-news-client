@@ -7,9 +7,6 @@ const PrivetRute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
 
-  console.log("before problem", user);
-  console.log("before problem", loading);
-
   if (loading) {
     console.log("problemmm", loading);
     return (
@@ -18,15 +15,9 @@ const PrivetRute = ({ children }) => {
       </p>
     );
   }
-  console.log("after problem", user);
-  console.log("after problem", loading);
 
   if (!user) {
-    return (
-      <Navigate to="/login" state={{ from: location }} replace>
-        {children}
-      </Navigate>
-    );
+    return <Navigate to="/login" state={{ from: location }} replace></Navigate>;
   } else {
     return children;
   }

@@ -3,8 +3,10 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import useSetTitle from "../../../hooks/useSetTitle";
 
 const Register = () => {
+  useSetTitle("Register"); //used custom hook for changing title name.
   const user = useContext(AuthContext);
   const { creatUser, updateUserProfile, userEmailVerification } = user;
 

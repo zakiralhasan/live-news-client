@@ -1,8 +1,10 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import useSetTitle from "../../../hooks/useSetTitle";
 import NewsSummuryCard from "../../NewsSummuryCard/NewsSummuryCard";
 
 const Home = () => {
+  useSetTitle("Home"); //used custom hook for changing title name.
   const news = useLoaderData();
 
   return (

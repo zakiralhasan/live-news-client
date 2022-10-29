@@ -2,10 +2,13 @@ import React from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaStar, FaEye } from "react-icons/fa";
 import { BsBookmarkCheck, BsShareFill } from "react-icons/bs";
+import useSetTitle from "../../../hooks/useSetTitle";
 
 const News = () => {
+  useSetTitle("Details"); //used custom hook for changing title name.
   const selectedNews = useLoaderData();
-  const { image_url, title, details, total_view, rating, author } = selectedNews;
+  const { image_url, title, details, total_view, rating, author } =
+    selectedNews;
   console.log(selectedNews);
   return (
     <div className="bg-white my-4 rounded shadow-md">

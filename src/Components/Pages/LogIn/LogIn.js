@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import useSetTitle from "../../../hooks/useSetTitle";
 
 const LogIn = () => {
+  useSetTitle("Login"); //used custom hook for changing title name.
   const { loginUser, setLoading } = useContext(AuthContext);
 
   const navigate = useNavigate();
